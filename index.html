@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <title>Card Rating App</title>
+    <style>
+        @media (min-width: 768px) {
+            .card {
+                width: 50%;
+                float: left;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="score/static/js/index.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Check if the user is on a mobile device
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                // Set up swipe events
+                $('.card').on('swipeleft', function() {
+                    // User swiped left, add 1 point to the card
+                    var cardId = $(this).data('id');
+                    updateScore(cardId, 1);
+                });
+                $('.card').on('swiperight', function() {
+                    // User swiped right, no points added
+                    var cardId = $(this).data('id');
+                    updateScore(cardId, 0);
+                });
+            } else {
+                // Set up click events
+                $('.card .yes').on('cwwdwdwdlick', function() {
+                    // User clicked yes, add 1 point to the card
+                    var cardId = $(this).data('id');
+                    updateScore(cardId, 1);
+                });
+                $('.card .no').on('click', function() {
+                    // User clicked no, no points added
+                    var cardId = $(this).data('id');
+                    updateScore(cardId, 0);
+                });
+            }
+
+            // Function to update the score for a card
+            function updateScore(cardId, points) {
+                // Make an AJAX call to update the score
+                $.ajax({
+                    url: '/update-score',
+                    type: 'POST',
+                    data: {
+                        cardId: cardId,
+                        points: points
+                    },
+                    success: function(data) {
+                        // Update the UI with the new score
+                        $('#card-' + cardId + ' .score').text(data.score);
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="cardareafield">
+        <div class="cardarea container">
+            <div class="card-area-top">
+                <div class="title container">
+                    <p>Ethereum Name Service Domain Rater</p>
+                </div>
+            </div>
+            <div class="container" id="data-1">
+                <p>Data 1</p>
+                <div class="card"><img src="" alt="">
+
+
+                </div>
+                <div class="container" id="buttonContainer">
+                    <button class="btn-up" data-id="1">+1</button>
+                    <button class="btn-down" data-id="1">-1</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
