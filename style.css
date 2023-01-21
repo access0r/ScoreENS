@@ -1,6 +1,40 @@
+html {
+    border-radius: 8px;
+    background-color: rgb(218, 234, 240);
+}
+
+body {
+    border-radius: 8px;
+    height: 100%;
+    background-color: rgb(175, 234, 255);
+}
+
 * {
+    border-radius: 8px;
     border: 2px solid black;
     padding: 12px;
+}
+
+.nav {
+    width: 99%;
+    color: red;
+    display: flex;
+}
+
+.link {
+    border: none;
+}
+
+.link a {
+    border-radius: 4px;
+    border: none;
+    background-color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.link>a>span {
+    border: none;
 }
 
 .cardareafield {
@@ -13,9 +47,9 @@
     margin-top: 2%;
 }
 
-.btn-up,
-.btn-down {
-    width: 50px;
+.btn-score-accept,
+.btn-score-reject {
+    width: 70px;
     margin: 0 auto;
     position: rel;
 }
@@ -24,4 +58,67 @@
     width: 50%;
     margin: 0 auto;
     padding: 10px;
+}
+
+.card {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+.card-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card-body {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.card-footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 0px 15px 0px 7.5px;
+    height: 50px;
+    width: 80px;
+}
+
+.btn-score-accept {
+    background-color: rgb(198, 255, 198);
+}
+
+.btn-score-reject {
+    background-color: rgb(255, 177, 177);
+}
+
+.btn-score-idk {
+    background-color: rgb(247, 255, 175);
+}
+
+.btn-primary {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #f44336;
+    color: #fff;
 }
